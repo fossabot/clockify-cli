@@ -39,7 +39,7 @@ func withClockifyClient(fn func(cmd *cobra.Command, args []string, c *api.Client
 
 func withClockifyReportsClient(fn func(cmd *cobra.Command, args []string, c *reportsapi.ReportsClient) error) func(*cobra.Command, []string) error {
 	return func(cmd *cobra.Command, args []string) error {
-		c, err := reportsapi.NewReportsClient(viper.GetString("token"))
+		c, err := reportsapi.NewReportsClient(viper.GetString(TOKEN))
 		if err != nil {
 			return err
 		}
